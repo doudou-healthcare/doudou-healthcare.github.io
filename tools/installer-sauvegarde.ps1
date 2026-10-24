@@ -5,7 +5,8 @@
 # ═══════════════════════════════════════════════════════════════
 $projet = Split-Path -Parent $PSScriptRoot
 $node = (Get-Command node -ErrorAction Stop).Source
-$action = New-ScheduledTaskAction -Execute $node -Argument "`"$projet\tools\backup-daily.mjs`"" -WorkingDirectory $projet
+# conhost --headless : la sauvegarde tourne sans ouvrir de fenêtre noire.
+$action = New-ScheduledTaskAction -Execute "$env:SystemRoot\System32\conhost.exe" -Argument "--headless `"$node`" `"$projet\tools\backup-daily.mjs`"" -WorkingDirectory $projet
 $trigger = New-ScheduledTaskTrigger -Daily -At "21:30"
 # StartWhenAvailable : si le PC était éteint à 21:30, la sauvegarde part au prochain démarrage.
 $reglages = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Minutes 15)

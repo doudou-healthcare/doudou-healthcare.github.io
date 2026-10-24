@@ -73,6 +73,7 @@ Trois niveaux : la copie sur chaque appareil, le serveur Supabase (Francfort), e
 
 - Fichiers : `Documents\Sauvegardes Doudou\doudou-sauvegarde-AAAA-MM-JJ.json` (photos comprises), **30 derniers gardés**.
 - Journal : `Documents\Sauvegardes Doudou\journal-sauvegardes.txt`.
+- La tâche passe par `conhost --headless` : aucune fenêtre ne s'ouvre. Ancienne version de la tâche (avant 2026-10-23) : `_versions\tache-sauvegarde-avant-headless-2026-10-23.xml` (Planificateur de tâches › Importer).
 - L'appel quotidien empêche aussi la mise en pause du projet Supabase gratuit (pause après 7 jours sans activité).
 
 **Exporter à la main** : Réglages › « Exporter toutes les données ».
