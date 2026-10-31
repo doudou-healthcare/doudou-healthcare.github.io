@@ -15,3 +15,7 @@ coverage/
 test-results/
 playwright-report/
 .DS_Store
+# copies de sauvegarde locales et donnees de travail (2026-11-01)
+_versions/
+# analyses de securite : locales, jamais publiees (2026-11-01)
+analyse-*.md
