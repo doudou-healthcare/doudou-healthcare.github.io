@@ -107,7 +107,22 @@ quotidienne). La restauration remplace les données de l'appareil puis les renvo
 | `tools/` | Sauvegarde quotidienne, icônes, mise en place |
 | `design/` | Prototype de référence (ne pas modifier) |
 
-## 9. Coûts
+## 9. Illustrations
+
+Le module [`src/ui/illustrations.js`](src/ui/illustrations.js) fabrique les dessins de l'appli en **SVG** (du texte, sans
+fichier image) : Doudou (`catSVG`, avec les humeurs content, curieux, boudeur, endormi, malade), Dr. Doudou (`drSVG`),
+l'œil de statut (`eyeStatus`, 4 niveaux : `ok`, `watch`, `soon`, `urgent`), les illustrations des écrans vides
+(`emptyIll`), les photos illustrées (`photoSVG`) et le QR code de la carte de secours (`qrSVG`).
+
+- Le QR est généré **sur l'appareil** (bibliothèque `qrcode-generator`), sans service extérieur.
+- Le label et l'identifiant passés à `catSVG` (le nom du chat, saisi par l'utilisateur) sont **échappés**.
+- Tests : [`tests/unit/illustrations.test.js`](tests/unit/illustrations.test.js) (vérifie cet échappement dans `catSVG`).
+  Ils se lancent avec `npm test` (tous les tests), ou seuls avec :
+  ```powershell
+  npx vitest run tests/unit/illustrations.test.js
+  ```
+
+## 10. Coûts
 
 Tout est gratuit à ce jour : GitHub Pages, Supabase (offre gratuite), aucune IA appelée. Dr. Doudou (étape 4)
 utilisera une clé IA avec plafond de dépense, ou un mode « prompt à copier » sans coût.

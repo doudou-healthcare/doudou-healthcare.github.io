@@ -1,5 +1,6 @@
 /* Illustrations SVG : Doudou, Dr. Doudou, œil de statut, états vides, photos, QR. */
 import qrcode from "qrcode-generator";
+import { esc } from "../utils/core.js";
 
 export function catSVG(mood = "content", opts = {}) {
   const eyeL = 44, eyeR = 76, ey = 64;
@@ -17,7 +18,7 @@ export function catSVG(mood = "content", opts = {}) {
   const mouth = mood === "malade" || mood === "boudeur"
     ? `<path d="M54 87 q6 -3 12 0" stroke="var(--ink)" stroke-width="2.2" fill="none" stroke-linecap="round"/>`
     : `<path d="M60 80.5v3.5M60 84q-4 4.5-8.5 1.5M60 84q4 4.5 8.5 1.5" stroke="var(--ink)" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
-  return `<svg class="cat" viewBox="0 0 120 120" role="img" aria-label="${opts.label || "Illustration de Doudou, chat tigré roux"}" ${opts.id ? `id="${opts.id}"` : ""}>
+  return `<svg class="cat" viewBox="0 0 120 120" role="img" aria-label="${esc(opts.label || "Illustration de Doudou, chat tigré roux")}" ${opts.id ? `id="${esc(opts.id)}"` : ""}>
     ${opts.bg ? `<circle cx="60" cy="60" r="60" fill="${opts.bg}"/>` : ""}
     <ellipse cx="60" cy="116" rx="34" ry="18" fill="var(--cream)"/>
     <path d="M20 52 L28 12 L56 34 Z" fill="var(--fur)"/><path d="M29 42 L32 22 L47 34 Z" fill="var(--nose)" opacity=".55"/>
